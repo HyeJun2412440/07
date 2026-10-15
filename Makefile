@@ -1,0 +1,13 @@
+TARGET = program
+SRCS = main.c sub.c
+OBJS = $(SRCS:.c=.o)
+CC = gcc
+CFLAGS = -Wall
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
